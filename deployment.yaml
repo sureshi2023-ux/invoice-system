@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: invoice-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: invoice
+  template:
+    metadata:
+      labels:
+        app: invoice
+    spec:
+      containers:
+      - name: invoice-container
+        image: your-dockerhub-username/invoice-app:latest
+        ports:
+        - containerPort: 8080
